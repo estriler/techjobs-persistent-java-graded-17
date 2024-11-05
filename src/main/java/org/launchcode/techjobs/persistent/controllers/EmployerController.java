@@ -16,6 +16,17 @@ import java.util.Optional;
 @RequestMapping("employers")
 public class EmployerController {
 
+    @Autowired
+    private EmployerRepository employerRepository;
+
+    @GetMapping("")
+    public String index(Model model){
+
+        List<Employer> employers = (List<Employer>) employerRepository.findAll();
+        model.addAttribute("employers", employers);
+        return "employers/index";
+    }
+
     @GetMapping("add")
     public String displayAddEmployerForm(Model model) {
         model.addAttribute(new Employer());
@@ -46,17 +57,6 @@ public class EmployerController {
         } else {
             return "redirect:../";
         }
-    }
-
-    @Autowired
-    private EmployerRepository employerRepository;
-
-    @GetMapping("")
-    public String index(Model model){
-
-        List<Employer> employers = (List<Employer>) employerRepository.findAll();
-        model.addAttribute("employers", employers);
-        return "employers/index";
     }
 
 }
