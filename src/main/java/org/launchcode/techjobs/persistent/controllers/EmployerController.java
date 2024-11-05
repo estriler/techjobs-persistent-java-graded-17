@@ -28,6 +28,8 @@ public class EmployerController {
 
         if (errors.hasErrors()) {
             return "employers/add";
+        }else{
+             employerRepository.save(newEmployer);
         }
 
         return "redirect:";
