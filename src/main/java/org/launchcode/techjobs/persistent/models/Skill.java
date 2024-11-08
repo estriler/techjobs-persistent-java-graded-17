@@ -12,4 +12,12 @@ public class Skill extends AbstractEntity {
     //no-arg constructor
     public Skill(){}
 
+    //public accessor methods
+    public @Size(max = 200) String getDescription() {
+        return description;
+    }
+
+    public void setDescription(@Size(max = 200) String description) {
+        this.description = description;
+    }
 }
