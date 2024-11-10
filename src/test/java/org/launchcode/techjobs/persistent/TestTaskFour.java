@@ -140,10 +140,7 @@ public class TestTaskFour extends AbstractTest {
 
         new Expectations() {{
             skillRepository.findAllById((Iterable<Integer>) any);
-            //Original code
-//            job.setSkills((List<Skill>) any);
-            //Adjusted to fix error
-            job.setSkills(((List<Skill>) any).toString());
+            job.setSkills((List<Skill>) any);
         }};
 
         Model model = new ExtendedModelMap();
